@@ -6,9 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/features/ui",
+        features = "src/test/java/features/api",
         glue = "",
-        tags = "@inm_test"
+        tags = "@api_test"
 )
 public class Runner {
 }
