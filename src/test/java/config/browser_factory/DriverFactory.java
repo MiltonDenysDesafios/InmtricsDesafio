@@ -26,8 +26,8 @@ public class DriverFactory {
                         break;
                 }
                 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                driver.manage().window().maximize();
                 driver.get("https://www.inmetrics.com.br/");
-                //BasePage.openHomePage();
 
             }
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class DriverFactory {
     }
     public static void killDriver() {
         if (driver != null) {
-            driver.close();
+            driver.quit();
             driver = null;
         }
     }
