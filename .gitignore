@@ -1,0 +1,14 @@
+/target/
+.settings/
+.classpath
+.project
+.env
+.gitignore.bak
+/reports
+output/
+.idea
+/bin/
+.metadata
+firered.iml
+failed_scenarios/
+DesafioInmetrics.iml
