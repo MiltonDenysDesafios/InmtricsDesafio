@@ -20,7 +20,7 @@ public class DriverFactory {
             if(driver == null){
                 switch(DriverType.browser){
                     case CHROME:
-                        System.setProperty("webdriver.chrome.driver","D:\\Projetos\\DesafioInmetrics\\src\\test\\java\\resources\\chromedriver\\chromedriver.exe");
+                        System.setProperty("webdriver.chrome.driver","src\\test\\java\\resources\\chromedriver\\chromedriver.exe");
                         ChromeOptions options = new ChromeOptions();
                         driver = new ChromeDriver(options);
                         break;
