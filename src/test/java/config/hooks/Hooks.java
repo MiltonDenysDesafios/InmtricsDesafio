@@ -14,6 +14,6 @@ public class Hooks {
 
     @After
     public void finish() {
-
+        DriverFactory.killDriver();
     }
 }

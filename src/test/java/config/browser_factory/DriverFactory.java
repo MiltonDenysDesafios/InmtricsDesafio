@@ -34,6 +34,11 @@ public class DriverFactory {
 
         }
         return driver;
-
+    }
+    public static void killDriver() {
+        if (driver != null) {
+            driver.close();
+            driver = null;
+        }
     }
 }
