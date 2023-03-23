@@ -3,36 +3,24 @@ package resources;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import org.hamcrest.Matchers;
 
 
 public class ApiSetup implements Constants{
 
-
     public static void setup(){
         RestAssured.baseURI = APP_BASE_URL;
+        RestAssured.basePath = APP_BASE_PATH;
+
         RequestSpecBuilder reqBuilder = new RequestSpecBuilder();
         reqBuilder.setContentType(APP_CONTENT_TYPE);
         RestAssured.requestSpecification = reqBuilder.build();
 
+        ResponseSpecBuilder resBuilder = new ResponseSpecBuilder();
+        resBuilder.expectResponseTime(Matchers.lessThan(Max_TIMEOUT));
+        RestAssured.responseSpecification = resBuilder.build();
+
+        //RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
     }
-
-
-
-//    public static void getFilmes(){
-//        RestAssured.given()
-//                    .when()
-//                        .contentType(ContentType.JSON)
-//                        .get("https://swapi.dev/api/films/")
-//                    .then()
-//                        .statusCode(200)
-//                        .log().all();
-//    }
-//    public static void getFilmesDiretorGeorgeLucas(){
-//        RestAssured.given()
-//                .when()
-//                    .get("https://swapi.dev/api/films/")
-//                .then()
-//                    .statusCode(200)
-//                .body("find{director}")
-//    }
 }
