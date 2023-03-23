@@ -17,5 +17,6 @@ public class ApiSteps {
     @Then("validar que é retornado os filmes corretamente")
     public void validar_que_é_retornado_os_filmes_corretamente() {
         StarWarsPage.contarDiretorGeorgeLucas();
+        StarWarsPage.contarProdutorRickMcCallum();
     }
 }
