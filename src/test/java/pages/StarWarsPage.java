@@ -5,6 +5,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import org.hamcrest.Matchers;
+import org.junit.Assert;
 import resources.ApiSetup;
 
 import java.util.ArrayList;
@@ -32,14 +33,15 @@ public class StarWarsPage extends ApiSetup {
                         .then()
                         .extract()
                             .path("results.director");
-                            System.out.println(response);
                             //count how many times George Lucas is display as director and show on console
                             int countA = Collections.frequency(response, "George Lucas");
+                            Assert.assertEquals(4,countA);
                             System.out.println("George Lucas worked as director of star wars movies " + countA + " times");
     }
     public static void contarProdutorRickMcCallum(){
 
         ArrayList<String> response = new ArrayList<String>();
+        int numberOfItemIds = 0;
         response =
                 RestAssured.
                         given()
@@ -49,9 +51,14 @@ public class StarWarsPage extends ApiSetup {
                         .then()
                         .extract()
                         .path("results.producer");
-        System.out.println(response);
-        //count how many times George Lucas is display as director and show on console
-        int countA = Collections.frequency(response, "Rick McCallum");
-        System.out.println("Rick McCallum worked by itself as producer of star wars movies " + countA + " times");
+
+        //loop through the list to count how many times George Lucas is display as director and show on console
+        for (int i=0; i < response.size();i++){
+            if(response.contains("Rick McCallum")){
+                numberOfItemIds++;
+            }
+        }
+        Assert.assertEquals(6,numberOfItemIds);
+        System.out.println("Rick McCallum worked as producer of star wars movies " + numberOfItemIds + " times");
     }
 }
