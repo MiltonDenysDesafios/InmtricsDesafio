@@ -1,7 +1,7 @@
 #Author: Milton Denys
 
 @inm_test
-Feature: Navegar no site Carreiras e clicar no botão confira nossas vagas.
+Feature: Validar acesso a pagina Gupy
 
 Scenario: Validar que ao clicar no link confira nossas vagas o usuário é encaminhado para o site gupy
 

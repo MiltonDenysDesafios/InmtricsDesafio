@@ -1,7 +1,7 @@
 #Author: Milton Denys
 
 @api_test
-Feature: Buscar e exibir os filmes da franquia Star Wars
+Feature: Validar Api Star Wars
 
   Scenario: Enviar um GET para API e buscar os filmes pelo titulo
 
