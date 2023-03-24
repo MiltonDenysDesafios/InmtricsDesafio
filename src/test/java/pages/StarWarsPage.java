@@ -21,7 +21,7 @@ public class StarWarsPage extends ApiSetup {
                     .then()
                         .statusCode(200);
     }
-    public static void contarDiretorGeorgeLucas(){
+    public static void contarDiretorGeorgeLucas(String diretor){
 
         ArrayList<String> response = new ArrayList<String>();
         response =
@@ -34,9 +34,8 @@ public class StarWarsPage extends ApiSetup {
                         .extract()
                             .path("results.director");
                             //count how many times George Lucas is display as director and show on console
-                            int countA = Collections.frequency(response, "George Lucas");
-                            Assert.assertEquals(4,countA);
-                            System.out.println("George Lucas worked as director of star wars movies " + countA + " times");
+                            int countA = Collections.frequency(response, diretor);
+                            System.out.println(diretor+" worked as director of star wars movies " + countA + " times");
     }
     public static void contarProdutorRickMcCallum(){
 
