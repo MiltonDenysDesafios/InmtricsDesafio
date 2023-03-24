@@ -7,10 +7,11 @@ Feature: Validar Api Star Wars
 
     Given tenho a url
     When é feito uma chamada get
-    Then validar em quantos filmes aparece "George Lucas" como diretor
+    Then mostrar em quantos filmes aparece "George Lucas" como diretor
+    And mostrar em quantos filmes aparece "Rick McCallum" como produtor
 
-#  Scenario: Enviar um GET para API e buscar os filmes pelo titulo
-#
-#    Given tenho a url
-#    When é feito uma chamada get
-#    Then validar que é retornado os filmes corretamente
+  Scenario: Enviar um GET para API e buscar os filmes pelo titulo
+
+    Given tenho a url
+    When é feito uma chamada get para o filme ""
+    Then validar que é retornado os filmes corretamente

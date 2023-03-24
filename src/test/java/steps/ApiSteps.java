@@ -14,9 +14,16 @@ public class ApiSteps {
     public void é_feito_uma_chamada_get() {
         //StarWarsPage.getFilmes();
     }
-    @Then("validar em quantos filmes aparece {string} como diretor")
-    public void validar_que_é_retornado_os_filmes_corretamente(String diretor) {
-        StarWarsPage.contarDiretorGeorgeLucas(diretor);
-        //StarWarsPage.contarProdutorRickMcCallum();
+    @Then("mostrar em quantos filmes aparece {string} como diretor")
+    public void contarDiretor(String diretor) {
+        StarWarsPage.contarDiretor(diretor);
+    }
+    @Then("mostrar em quantos filmes aparece {string} como produtor")
+    public void contarProdutor(String produtor) {
+        StarWarsPage.contarProdutor(produtor);
+    }
+    @Then("é feito uma chamada get para o filme {string}")
+    public void getMovie(String movie) {
+        StarWarsPage.getMovie(movie);
     }
 }
