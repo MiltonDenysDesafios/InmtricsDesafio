@@ -3,16 +3,15 @@ package pages;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
-import org.hamcrest.Matchers;
-import org.junit.Assert;
 import resources.ApiSetup;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
+
 public class StarWarsPage extends ApiSetup {
+
+    private static String actualTitle;
+    private static int actualEpisodeId;
 
     public static void getFilmes(){
         RestAssured.given()
@@ -35,7 +34,7 @@ public class StarWarsPage extends ApiSetup {
                             .path("results.director");
                             //count how many times director is display as director and show on console
                             int countA = Collections.frequency(response, diretor);
-                            System.out.println(diretor+" worked as director of star wars movies " + countA + " times");
+                            System.out.println(diretor+" trabalhou como diretor de filmes de guerra nas estrelas " + countA + " vezes");
     }
     public static void contarProdutor(String produtor){
 
@@ -57,10 +56,27 @@ public class StarWarsPage extends ApiSetup {
                 numberOfItemIds++;
             }
         }
-        System.out.println(produtor+" worked as producer of star wars movies " + numberOfItemIds + " times");
+        System.out.println(produtor+" trabalhou como produtor de filmes de guerra nas estrelas " + numberOfItemIds + " vezes");
     }
-    public static void getMovie(String movie){
+    public static void getMovieId(String movie){
 
+                 Response response = RestAssured.
+                        given()
+                        .contentType("application/json")
+                        .when()
+                        .get("/films/?title="+movie)
+                        .then()
+                        .statusCode(200)
+                        .extract()
+                         .response();
+
+                 JsonPath jsonPath = response.jsonPath();
+                 actualTitle = jsonPath.getString("results.find { it.title == '" + movie +"' }.title");
+                 actualEpisodeId = jsonPath.getInt("results.find { it.title == '" + movie +"' }.episode_id");
+
+    }
+    public static void moviesReturn(){
+        System.out.println("Episode ID do filme " + actualTitle + " é " + actualEpisodeId);
     }
 
 }

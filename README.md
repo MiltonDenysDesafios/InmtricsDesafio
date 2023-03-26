@@ -29,14 +29,35 @@ O redirecionamento deve ser validado para garantir que o usuário seja direciona
 
 ## Feature: Validar Api Star Wars
 
-### Scenario: Enviar um GET para API e buscar os filmes pelo titulo
+### Scenario: Validar quantos filmes têm a participação do diretor e produtor.
 
-###  Given
+## Pré-requisitos
 
-tenho a url
+- Definir o valor do parâmetro director para o nome do diretor a ser pesquisado. O valor padrão é "George Lucas", mas pode ser alterado para qualquer nome de diretor válido.
+- Definir o valor do parâmetro producer para o nome do produtor a ser pesquisado. O valor padrão é "Rick McCallum", mas pode ser alterado para qualquer nome de produtor válido.
+
 ###  When
 
 é feito uma chamada get
+### Then
+
+devo ver em quantos filmes "George Lucas" é creditado como diretor.
+
+### And
+
+devo ver em quantos filmes "Rick McCallum" é creditado como produtor.
+
+
+### Scenario: Enviar um GET para API e buscar os filmes pelo titulo
+
+## Pré-requisitos
+
+- Definir o valor do parâmetro para o filme a ser pesquisado. O valor padrão é "The Phantom Menace", mas pode ser alterado para qualquer nome de filme válido.
+
+###  When
+
+é feito uma chamada get para o filme "The Phantom Menace"
+
 ### Then
 
 validar que é retornado os filmes corretamente
