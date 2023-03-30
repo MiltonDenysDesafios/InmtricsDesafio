@@ -1,86 +1,31 @@
-# InmetricsDesafio
-Este projeto é um desafio proposto pela Inmetrics, que consiste em um desafio de webservice e outro de UI test automation.
+# InmetricsChallenge
+This project is a challenge proposed by Inmetrics, which consists of a webservice and a UI test automation challenge.
 
-# Ui Test
+# UI Test
 
-## Feature: Validar acesso a pagina Gupy
+# Description:
 
-### Scenario: Validar que ao clicar no link confira nossas vagas o usuário é encaminhado para o site gupy
+[InmetricsTest.feature](https://github.com/MiltonDenysDesafios/InmtricsDesafio/blob/master/src/test/java/features/ui/InmetricsTest.feature)
 
-###  Given
-
-Que acesso a home do site da Inmetrics
-###  When
-
-Desço até a sessão "Confira nossas vagas" e clico no link correspondente
-### Then
-
-Deve ser validado que o usuário é encaminhado para a tela de visualização das vagas no site da plataforma Gupy.
-
-# Observações:
-
-O link para as vagas de emprego pode ser encontrado na página inicial do site da Inmetrics, na sessão "Confira nossas vagas".
-Ao clicar no link correspondente, o usuário deve ser redirecionado para a página de vagas no site da plataforma Gupy, onde poderá visualizar as vagas disponíveis e se candidatar a elas.
-O redirecionamento deve ser validado para garantir que o usuário seja direcionado para a página correta no site da Gupy.
-
-
+The link to job listings can be found on the Inmetrics website homepage, in the "Confira nossas vagas" section.
+When clicking on the corresponding link, the user should be redirected to the job listings page on the Gupy platform, where they can view available jobs and apply for them.
+The redirection should be validated to ensure that the user is directed to the correct page on the Gupy website.
 
 # WebService
 
-## Feature: Validar Api Star Wars
+# Description:
 
-### Scenario: Validar quantos filmes têm a participação do diretor e produtor.
+[StarWars.feature](https://github.com/MiltonDenysDesafios/InmtricsDesafio/blob/master/src/test/java/features/api/StarWars.feature)
 
-## Pré-requisitos
+The list of Star Wars movies should be obtained through the API https://swapi.dev/api/films/
+The API should be called passing the movie title as a parameter in the URL, for example: https://swapi.dev/api/films/?search=A%20New%20Hope
+The API response should be in JSON format and should contain information about the movies, such as title, episode, director, producer, release date, characters, planets, among others.
+The information about each movie should be validated to ensure that it is correct.
+If the search returns no movies, the API response should indicate this clearly.
 
-- Definir o valor do parâmetro director para o nome do diretor a ser pesquisado. O valor padrão é "George Lucas", mas pode ser alterado para qualquer nome de diretor válido.
-- Definir o valor do parâmetro producer para o nome do produtor a ser pesquisado. O valor padrão é "Rick McCallum", mas pode ser alterado para qualquer nome de produtor válido.
+# Technologies 
 
-###  When
-
-é feito uma chamada get
-### Then
-
-devo ver em quantos filmes "George Lucas" é creditado como diretor.
-
-### And
-
-devo ver em quantos filmes "Rick McCallum" é creditado como produtor.
-
-
-### Scenario: Enviar um GET para API e buscar os filmes pelo titulo
-
-## Pré-requisitos
-
-- Definir o valor do parâmetro para o filme a ser pesquisado. O valor padrão é "The Phantom Menace", mas pode ser alterado para qualquer nome de filme válido.
-
-###  When
-
-é feito uma chamada get para o filme "The Phantom Menace"
-
-### Then
-
-validar que é retornado os filmes corretamente
-
-Exemplos:
-
-| Título do Filme           | Resposta Esperada     |
-|---------------------------|-----------------------|
-| "A New Hope"              | Filme 4 da saga       |
-| "The Empire Strikes Back" | Filme 5 da saga       |
-| "Return of the Jedi"      | Filme 6 da saga       |
-
-
-# Observações:
-
-A lista de filmes da saga Star Wars deve ser obtida através da API https://swapi.dev/api/films/
-A API deve ser chamada passando o título do filme como parâmetro na URL, por exemplo: https://swapi.dev/api/films/?search=A%20New%20Hope
-A resposta da API deve estar no formato JSON e deve conter as informações sobre os filmes, como título, episódio, diretor, produtor, lançamento, personagens, planetas, entre outras.
-As informações sobre cada filme devem ser validadas para garantir que estão corretas.
-Caso a busca não retorne nenhum filme, a resposta da API deve indicar isso de forma clara.
-
-# Tecnologias utilizadas
-Cucumber: Framework de teste de aceitação (BDD) que utiliza a linguagem Gherkin para escrever cenários de teste em linguagem natural.
-Selenium WebDriver: Biblioteca de testes automatizados de interface do usuário (UI) para web, que permite interagir com elementos da página web e automatizar tarefas em navegadores.
-JUnit: Framework de testes unitários para Java.
-Rest-assured: Biblioteca Java para testes de API RESTful que permite escrever testes de forma mais clara e legível, utilizando um estilo fluente de linguagem de programação.
+ - Cucumber: Framework de teste de aceitação (BDD) que utiliza a linguagem Gherkin para escrever cenários de teste em linguagem natural.
+ - Selenium WebDriver: Biblioteca de testes automatizados de interface do usuário (UI) para web, que permite interagir com elementos da página web e automatizar tarefas em navegadores.
+ - JUnit: Framework de testes unitários para Java.
+ - Rest-assured: Biblioteca Java para testes de API RESTful que permite escrever testes de forma mais clara e legível, utilizando um estilo fluente de linguagem de programação.
